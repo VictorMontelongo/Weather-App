@@ -3,7 +3,7 @@ const searchButton = document.querySelector('.search-btn')
 // const cityName = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=a1de2c11560a7edb71cd7169547ca85a`
 
 function currentWeather(cityName) {
-  const urlWeatherEndpoint = `https://api.openweathermap.org/data/3.0/weather?q=${cityName}&
+  const urlWeatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&
   appid=e99afe44363c30c28c06ae20b2b37ae9`
   fetch(urlWeatherEndpoint).then(function (data) {
     if (data.ok) {
@@ -17,7 +17,7 @@ function currentWeather(cityName) {
 }
 // forecasting weather 
 function forecastWeather(lat, lon) {
-  var urlWeatherForecast = `https://api.openweathermap.org/data/3.0/forecast?lat=${lat}&lon=${lon}&appid=e99afe44363c30c28c06ae20b2b37ae9`
+  var urlWeatherForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=e99afe44363c30c28c06ae20b2b37ae9`
   fetch(urlWeatherForecast).then(function (res) {
     if (res.ok) {
       return res.json()
