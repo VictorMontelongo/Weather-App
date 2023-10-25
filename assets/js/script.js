@@ -4,7 +4,7 @@ const searchButton = document.querySelector('.search-btn')
 
 function currentWeather(cityName) {
   const urlWeatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&
-  appid=e99afe44363c30c28c06ae20b2b37ae9`
+  appid=ce7b7e6753335c00cb9d168709cd55aa`
   fetch(urlWeatherEndpoint).then(function (data) {
     if (data.ok) {
       return data.json()
@@ -17,7 +17,7 @@ function currentWeather(cityName) {
 }
 // forecasting weather 
 function forecastWeather(lat, lon) {
-  var urlWeatherForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=e99afe44363c30c28c06ae20b2b37ae9`
+  var urlWeatherForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=ce7b7e6753335c00cb9d168709cd55aa`
   fetch(urlWeatherForecast).then(function (res) {
     if (res.ok) {
       return res.json()
@@ -40,7 +40,7 @@ const createWeatherCard = (weatherInfo, index) => {
         <img src="https://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@4x.png" alt="weather-icon">
         <h6>${weatherInfo.weather[0].description}</h6>
         </div>`;
-  } else { // HTML for the other five day forecast card
+  } else { // HTML for the other five day forecast card, might try to make dynamically, but I am running out of time. 
     return `<li class="card">
     <h3>(${weatherInfo.dt_txt.split(" ")[0]})</h3> 
     <img src="https://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@4x.png" alt="weather-icon">
