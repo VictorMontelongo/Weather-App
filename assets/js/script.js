@@ -1,10 +1,17 @@
+// var date = dayjs();
+var city = "";
+let citiesSaved = [];
+// var time = dayjs().format('YYYY-MM-DD HH:MM:SS');
+// var date = dayjs().format('dddd, MMMM D YYYY');
 const citySearch = document.querySelector('.search-city')
 const searchButton = document.querySelector('.search-btn')
-// const cityName = `https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=a1de2c11560a7edb71cd7169547ca85a`
+token = 'a1de2c11560a7edb71cd7169547ca85a';
 
-function currentWeather(cityName) {
-  const urlWeatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&
-  appid=ce7b7e6753335c00cb9d168709cd55aa`
+
+
+
+function currentWeather() {
+  const urlWeatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${token}`
   fetch(urlWeatherEndpoint).then(function (data) {
     if (data.ok) {
       return data.json()
@@ -17,7 +24,7 @@ function currentWeather(cityName) {
 }
 // forecasting weather 
 function forecastWeather(lat, lon) {
-  var urlWeatherForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=ce7b7e6753335c00cb9d168709cd55aa`
+  var urlWeatherForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${token}`
   fetch(urlWeatherForecast).then(function (res) {
     if (res.ok) {
       return res.json()
@@ -51,3 +58,5 @@ const createWeatherCard = (weatherInfo, index) => {
   }
 }
 searchButton.addEventListener('click', currentWeather);
+searchButton.addEventListener('click', forecastWeather);
+searchButton.addEventListener('click', createWeatherCard);
