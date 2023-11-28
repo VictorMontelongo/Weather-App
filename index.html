@@ -4,71 +4,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Domine:wght@500;600&family=Montserrat&family=Noto+Serif:wght@500&display=swap"
-    rel="stylesheet">
+  <title> Weather Forecast API</title>
+  <!-- bootstrap, font-awesome, google fonts, mdb, local -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 
 <body>
-  <h1>Weather Dashboard</h1>
-  <div class="container">
-    <div class="weather-input">
-      <h3>Enter a city Name</h3>
-      <input class="city-input" type="text" placeholder="Minneapolis, San Francisco, El Paso">
-      <button class="search-btn">Search</button>
-    </div>
-    <div class="weather-data">
-      <div class="current-weather">
-        <div class="details">
-          <h2>_______ ( ______ )</h2>
-          <h6>Temperature: __°C</h6>
-          <h6>Wind: __ M/S</h6>
-          <h6>Humidity: __%</h6>
+  <!-- header -->
+  <header class="d-flex p-4 justify-content-center bg-dark shadow-lg text-white">
+    <h1 class="h1 text-bold fw-bold text-center">Weather Forecast API</h1>
+  </header>
+
+  <!-- main container -->
+  <main class="d-flex">
+    <!-- search city container -->
+    <card class="d-flex p-3 m-3  w-50 shadow-lg border border-dark-subtle">
+      <form class=" bg-light col">
+        <h5 class="d-flex justify-content-center text-align-center fw-bold mt-1 p-2 mb-1">Search by city name</h5>
+        <input type="text" class="searchCityInput form-control w-100 text-center" id="search-city-input"
+          placeholder="enter city name...">
+        <button type="submit"
+          class="searchBtnClass btn shadow-lg w-100 mt-2 p-2 mb-2 btn-dark text-white text-lowercase"
+          id="search-btn">search
+        </button>
+        <div class="searchHistoryClass" id="searchHistContainer">
+          <h6 class="d-flex justify-content-center aibn text-align-center fw-bold mt-1 p-2 mb-1">Search History</h6>
+          <button type="submit" class="city btn shadow-lg text w-100 t-2 p-2 mb-2 btn-outline-dark text-lowercase"
+            id="searched-city-btn">
+          </button>
         </div>
+      </form>
+
+    </card>
+
+
+
+    <!-- current weather -->
+    <card class="text-end w-50 p-3 m-3 bg-light-subtle shadow-lg border border-dark-subtle rounded">
+      <h3 class="cityName mb-2 p-2 mt-2 bolder" id="city-name">City Name</h3>
+      <p class="currentDateClass" id="current-date">Date</p>
+      <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="currentIconClass" id="current-icon" />
+      <div class="flex-row " id="current-weather">
+        <p class="descriptionClass" id="current-description">Description</p>
+        <p class="tempClass" id="current-temp">Temp</p>
+        <p class="humidityClass" id="current-humidity">Humidity</p>
+        <p class="windClass" id="current-wind-speed">Winds</p>
       </div>
-      <div class="days-forecast">
-        <h2>5-Day Forecast</h2>
-        <ul class="weather-cards">
-          <li class="card">
-            <h3>( ______ )</h3>
-            <h6>Temp: __C</h6>
-            <h6>Wind: __ M/S</h6>
-            <h6>Humidity: __%</h6>
-          </li>
-          <li class="card">
-            <h3>( ______ )</h3>
-            <h6>Temp: __C</h6>
-            <h6>Wind: __ M/S</h6>
-            <h6>Humidity: __%</h6>
-          </li>
-          <li class="card">
-            <h3>( ______ )</h3>
-            <h6>Temp: __C</h6>
-            <h6>Wind: __ M/S</h6>
-            <h6>Humidity: __%</h6>
-          </li>
-          <li class="card">
-            <h3>( ______ )</h3>
-            <h6>Temp: __C</h6>
-            <h6>Wind: __ M/S</h6>
-            <h6>Humidity: __%</h6>
-          </li>
-          <li class="card">
-            <h3>( ______ )</h3>
-            <h6>Temp: __C</h6>
-            <h6>Wind: __ M/S</h6>
-            <h6>Humidity: __%</h6>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </card>
+  </main>
+
+  <!-- forecast produced in js -->
+  <div class="forecast">
+    <section id="fiveDayForecast"
+      class="fiveDayForecast d-flex w-100 align-items-center p-3 text-center m-2 border-dark-subtle justify-content-center gap-5 bg-light shadow-lg">
+    </section>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="./Assets/js/script.js"></script>
 </body>
-<script src="./assets/js/script.js"></script>
 
 </html>
